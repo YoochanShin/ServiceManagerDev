@@ -13,7 +13,7 @@
         <!--First-->
         <scene sceneID="Ola-FI-vlh">
             <objects>
-                <viewController title="First" id="brm-gh-mcN" customClass="FirstViewController" customModule="Service_Manager" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="First" id="brm-gh-mcN" customClass="FirstViewController" customModule="ServiceManagerDev" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="SyQ-ya-CzU">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -62,7 +62,7 @@
         <!--Signup-->
         <scene sceneID="RKC-hg-zmX">
             <objects>
-                <viewController title="Signup" id="7W0-Ek-1p9" customClass="SignupViewController" customModule="Service_Manager" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="Signup" id="7W0-Ek-1p9" customClass="SignupViewController" customModule="ServiceManagerDev" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="3zy-95-xy4">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -197,7 +197,7 @@
         <!--Login-->
         <scene sceneID="5ie-hJ-hTC">
             <objects>
-                <viewController title="Login" id="Ehh-Ft-sLm" customClass="LoginViewController" customModule="Service_Manager" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="Login" id="Ehh-Ft-sLm" customClass="LoginViewController" customModule="ServiceManagerDev" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="1B4-Td-xpl">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -299,11 +299,38 @@
         <!--Bar-->
         <scene sceneID="ZwS-zc-3hO">
             <objects>
-                <viewController title="Bar" id="fQd-nD-YcS" customClass="BarViewController" customModule="Service_Manager" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="Bar" id="fQd-nD-YcS" customClass="BarViewController" customModule="ServiceManagerDev" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="euc-p0-uX2">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="QLh-RO-dYI">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="686"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Service Bar Page" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Pa5-LM-x8G">
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="86"/>
+                                        <color key="backgroundColor" red="0.35026664559999998" green="0.83492071059999995" blue="0.85340430700000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <fontDescription key="fontDescription" type="italicSystem" pointSize="17"/>
+                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="white background" translatesAutoresizingMaskIntoConstraints="NO" id="xiV-9Z-y6N">
+                                        <rect key="frame" x="0.0" y="86" width="414" height="600"/>
+                                    </imageView>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="bottom" secondItem="Pa5-LM-x8G" secondAttribute="bottom" constant="600" id="pyi-E6-Gl8"/>
+                                    <constraint firstAttribute="bottom" secondItem="Pa5-LM-x8G" secondAttribute="bottom" constant="600" id="zlz-Hw-fpB"/>
+                                </constraints>
+                            </stackView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="QLh-RO-dYI" firstAttribute="top" secondItem="euc-p0-uX2" secondAttribute="top" id="8wg-Q6-CDx"/>
+                            <constraint firstAttribute="bottom" secondItem="QLh-RO-dYI" secondAttribute="bottom" constant="50" id="BSI-5r-Kta"/>
+                            <constraint firstAttribute="trailing" secondItem="QLh-RO-dYI" secondAttribute="trailing" id="Yi2-if-RxY"/>
+                            <constraint firstItem="QLh-RO-dYI" firstAttribute="leading" secondItem="euc-p0-uX2" secondAttribute="leading" id="wJF-5a-6QF"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="bZP-Gb-ODb"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Item 2" id="MqC-dG-glZ"/>
@@ -315,11 +342,37 @@
         <!--User-->
         <scene sceneID="azx-Wo-g6y">
             <objects>
-                <viewController title="User" id="Sdz-fq-6jy" customClass="UserViewController" customModule="Service_Manager" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="User" id="Sdz-fq-6jy" customClass="UserViewController" customModule="ServiceManagerDev" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="pjl-Iz-yyl">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="24h-cS-CT7">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="686"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="User Page" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ORb-Mb-QVU">
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="86"/>
+                                        <color key="backgroundColor" red="0.35026664559999998" green="0.83492071059999995" blue="0.85340430700000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <fontDescription key="fontDescription" type="italicSystem" pointSize="17"/>
+                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="white background" translatesAutoresizingMaskIntoConstraints="NO" id="Dnz-vT-AkQ">
+                                        <rect key="frame" x="0.0" y="86" width="414" height="600"/>
+                                    </imageView>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="bottom" secondItem="ORb-Mb-QVU" secondAttribute="bottom" constant="600" id="nDM-HE-4gb"/>
+                                </constraints>
+                            </stackView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="24h-cS-CT7" firstAttribute="top" secondItem="pjl-Iz-yyl" secondAttribute="top" id="Gxi-CH-f2m"/>
+                            <constraint firstAttribute="bottom" secondItem="24h-cS-CT7" secondAttribute="bottom" constant="50" id="W6o-XW-3i6"/>
+                            <constraint firstItem="24h-cS-CT7" firstAttribute="leading" secondItem="pjl-Iz-yyl" secondAttribute="leading" id="ybG-SL-D3W"/>
+                            <constraint firstAttribute="trailing" secondItem="24h-cS-CT7" secondAttribute="trailing" id="zQ8-Zs-V3t"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="Mko-pb-xfM"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Item" id="1YP-e6-Syr"/>
@@ -331,11 +384,38 @@
         <!--Schedule-->
         <scene sceneID="f7H-Fg-vGU">
             <objects>
-                <viewController title="Schedule" id="C7O-u6-onM" customClass="ScheduleViewController" customModule="Service_Manager" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="Schedule" id="C7O-u6-onM" customClass="ScheduleViewController" customModule="ServiceManagerDev" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="itI-1L-job">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="7Qm-Kk-yf3">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="686"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Schedule" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Prd-m8-TxV">
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="86"/>
+                                        <color key="backgroundColor" red="0.35026664559999998" green="0.83492071059999995" blue="0.85340430700000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <fontDescription key="fontDescription" type="italicSystem" pointSize="17"/>
+                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="white background" translatesAutoresizingMaskIntoConstraints="NO" id="WtA-P4-dza">
+                                        <rect key="frame" x="0.0" y="86" width="414" height="600"/>
+                                    </imageView>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="bottom" secondItem="Prd-m8-TxV" secondAttribute="bottom" constant="600" id="oSp-DG-dWj"/>
+                                    <constraint firstAttribute="bottom" secondItem="Prd-m8-TxV" secondAttribute="bottom" constant="600" id="ogr-p1-gXa"/>
+                                </constraints>
+                            </stackView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="7Qm-Kk-yf3" firstAttribute="top" secondItem="itI-1L-job" secondAttribute="top" id="ElF-bp-Jn4"/>
+                            <constraint firstAttribute="bottom" secondItem="7Qm-Kk-yf3" secondAttribute="bottom" constant="50" id="XAw-5M-ySa"/>
+                            <constraint firstItem="7Qm-Kk-yf3" firstAttribute="leading" secondItem="itI-1L-job" secondAttribute="leading" id="mg2-TA-tXz"/>
+                            <constraint firstAttribute="trailing" secondItem="7Qm-Kk-yf3" secondAttribute="trailing" id="xNo-hh-X1t"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="yIs-zq-K1f"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Item" id="O88-o3-5Cg"/>
@@ -347,11 +427,37 @@
         <!--Request-->
         <scene sceneID="2np-Pf-9x3">
             <objects>
-                <viewController title="Request" id="kki-nI-e6S" customClass="RequestViewController" customModule="Service_Manager" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="Request" id="kki-nI-e6S" customClass="RequestViewController" customModule="ServiceManagerDev" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="IuP-vS-lNz">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="Qrc-qi-sq4">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="686"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Service Request Page" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aNw-qU-Lyl">
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="86"/>
+                                        <color key="backgroundColor" red="0.35026664559999998" green="0.83492071059999995" blue="0.85340430700000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <fontDescription key="fontDescription" type="italicSystem" pointSize="17"/>
+                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="white background" translatesAutoresizingMaskIntoConstraints="NO" id="LBR-mN-MRM">
+                                        <rect key="frame" x="0.0" y="86" width="414" height="600"/>
+                                    </imageView>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="bottom" secondItem="aNw-qU-Lyl" secondAttribute="bottom" constant="600" id="WCq-QG-1Z3"/>
+                                </constraints>
+                            </stackView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstAttribute="bottom" secondItem="Qrc-qi-sq4" secondAttribute="bottom" constant="50" id="5n5-bO-0LW"/>
+                            <constraint firstItem="Qrc-qi-sq4" firstAttribute="leading" secondItem="IuP-vS-lNz" secondAttribute="leading" id="PJf-fa-GtX"/>
+                            <constraint firstAttribute="trailing" secondItem="Qrc-qi-sq4" secondAttribute="trailing" id="QL5-WF-Rhh"/>
+                            <constraint firstItem="Qrc-qi-sq4" firstAttribute="top" secondItem="IuP-vS-lNz" secondAttribute="top" id="daZ-JG-Fdh"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="SGm-6y-aZA"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Item 1" id="azP-EE-ejo"/>
@@ -381,6 +487,9 @@
             <point key="canvasLocation" x="1588" y="33"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="white background" width="225" height="225"/>
+    </resources>
     <inferredMetricsTieBreakers>
         <segue reference="2RS-oR-6JQ"/>
         <segue reference="xmR-5M-jXH"/>
