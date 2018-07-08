@@ -9,7 +9,18 @@
 import UIKit
 
 class UserViewController: UIViewController {
-
+    
+    @IBOutlet weak var Avatar: UIImageView!
+    
+    @IBOutlet weak var Bio: UITextField!
+    
+    @IBOutlet weak var Notify: UISwitch!
+    
+    //  @IBOutlet weak var Signout: UIButton!
+    
+    
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -20,6 +31,28 @@ class UserViewController: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) { // Touch the background to retract keyboard
+        self.view.endEditing(true)
+    }
+    
+    @IBAction func Bioo(_ sender: Any) {
+        Bio.allowsEditingTextAttributes = true
+        var biotext = ""
+        biotext = Bio.text!
+        Bio.becomeFirstResponder()
+        
+
+
+
+
+    }
+    
+    
+    
+    
+    
+    
     
 
     /*
