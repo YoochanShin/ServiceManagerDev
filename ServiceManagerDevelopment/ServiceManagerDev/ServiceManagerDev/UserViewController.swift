@@ -7,23 +7,87 @@
 //
 
 import UIKit
+import UserNotifications
 
-class UserViewController: UIViewController {
+
+class UserViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
-    @IBOutlet weak var Avatar: UIImageView!
+
+    @IBOutlet weak var profilepic: UIImageView!
     
-    @IBOutlet weak var Bio: UITextField!
+    @IBOutlet weak var Switch: UISwitch!
+    @IBOutlet weak var Button: UIButton!
     
-    @IBOutlet weak var Notify: UISwitch!
+    var imagePicker = UIImagePickerController()
     
-    //  @IBOutlet weak var Signout: UIButton!
+    @IBAction func action(_ sender: Any) {
+        print("Hello")
+        if Switch.isOn{
+            let content = UNMutableNotificationContent()
+            content.title = "Notifications!"
+            content.subtitle = ""
+            content.body = "See which tasks need completion"
+            let alarmTime = Date().addingTimeInterval(1)
+            let components = Calendar.current.dateComponents([.weekday, .hour, .minute], from: alarmTime)
+            let trigger = UNCalendarNotificationTrigger(dateMatching: components, repeats: true)
+            let request = UNNotificationRequest(identifier: "taskreminder", content: content, trigger: trigger)
+            UNUserNotificationCenter.current().add(request, withCompletionHandler: nil)
+            
+    
+            }
+    
+        else{
+            UIApplication.shared.cancelAllLocalNotifications()
+        
+        }
+        UserDefaults.standard.set(Switch.isOn, forKey: "SwitchStatus");
+
+        
+    }
+    
+    
+    @IBAction func buttonClicked(_ sender: Any) {
+        
+        imagePicker.delegate = self
+        imagePicker.sourceType = UIImagePickerControllerSourceType.photoLibrary
+        
+        self.present(imagePicker, animated:true, completion:nil)
+        
+        
+        
+    }
+    
+    
+    @objc func imagePickerController(_picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String:Any]){
+        let image = info[UIImagePickerControllerOriginalImage] as! UIImage
+        
+        profilepic.image = image
+        self.performSegue(withIdentifier: "ShowEditView", sender: self)
+        dismiss(animated: true, completion: nil)
+        
+        
+    }
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
     
     
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
+       UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .sound, .badge], completionHandler: {didAllow, error in})
 
+        
         // Do any additional setup after loading the view.
     }
 
@@ -32,23 +96,8 @@ class UserViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) { // Touch the background to retract keyboard
-        self.view.endEditing(true)
-    }
-    
-    @IBAction func Bioo(_ sender: Any) {
-        Bio.allowsEditingTextAttributes = true
-        var biotext = ""
-        biotext = Bio.text!
-        Bio.becomeFirstResponder()
-        
 
 
-
-
-    }
-    
-    
     
     
     
