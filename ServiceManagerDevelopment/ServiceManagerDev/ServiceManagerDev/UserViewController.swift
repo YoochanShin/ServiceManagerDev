@@ -12,7 +12,7 @@ import UserNotifications
 
 class UserViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
-
+    
     @IBOutlet weak var profilepic: UIImageView!
     
     @IBOutlet weak var Switch: UISwitch!
@@ -33,18 +33,19 @@ class UserViewController: UIViewController, UIImagePickerControllerDelegate, UIN
             let request = UNNotificationRequest(identifier: "taskreminder", content: content, trigger: trigger)
             UNUserNotificationCenter.current().add(request, withCompletionHandler: nil)
             
-    
-            }
-    
+            
+        }
+            
         else{
-            UIApplication.shared.cancelAllLocalNotifications()
-        
+            let center = UNUserNotificationCenter.current()
+            center.removeAllDeliveredNotifications() // To remove all delivered notifications
+            center.removeAllPendingNotificationRequests() // To remove all pending notifications which are not delivered yet but scheduled.
+            
         }
         UserDefaults.standard.set(Switch.isOn, forKey: "SwitchStatus");
-
+        
         
     }
-    
     
     @IBAction func buttonClicked(_ sender: Any) {
         
@@ -58,7 +59,7 @@ class UserViewController: UIViewController, UIImagePickerControllerDelegate, UIN
     }
     
     
-    @objc func imagePickerController(_picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String:Any]){
+    @objc func imagePickerController(_ _picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String:Any]){
         let image = info[UIImagePickerControllerOriginalImage] as! UIImage
         
         profilepic.image = image
@@ -85,33 +86,34 @@ class UserViewController: UIViewController, UIImagePickerControllerDelegate, UIN
     
     override func viewDidLoad() {
         super.viewDidLoad()
-       UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .sound, .badge], completionHandler: {didAllow, error in})
-
+        navigationController?.navigationBar.prefersLargeTitles = true // Large title
+        UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .sound, .badge], completionHandler: {didAllow, error in})
+        
         
         // Do any additional setup after loading the view.
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
     
-
-
     
     
     
     
     
-
+    
+    
+    
     /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
+     // MARK: - Navigation
+     
+     // In a storyboard-based application, you will often want to do a little preparation before navigation
+     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+     // Get the new view controller using segue.destinationViewController.
+     // Pass the selected object to the new view controller.
+     }
+     */
+    
 }

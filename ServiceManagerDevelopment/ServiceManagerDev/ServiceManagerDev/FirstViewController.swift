@@ -1,19 +1,27 @@
 //
 //  FirstViewController.swift
-//  ServiceManagerDev
+//  ServiceManagerDevRe
 //
-//  Created by Yoochan Shin on 2018/7/3.
-//  Copyright © 2018 Yoochan Shin. All rights reserved.
+//  Created by Yoochan Shin on 2018/7/15.
+//  Copyright © 2018 CISSDev. All rights reserved.
 //
 
 import UIKit
 
 class FirstViewController: UIViewController {
     
+    @IBOutlet weak var Name: UILabel!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        let normalString = Name.text
         
-        // Do any additional setup after loading the view.
+        let attributedText = NSMutableAttributedString(string: normalString!)
+        attributedText.addAttributes([NSAttributedStringKey.foregroundColor: UIColor.white, NSAttributedStringKey.font: UIFont(name: "Avenir-Black", size: 50)!], range: getRangeOfSubString(subString: "MASTER", fromString: normalString!)) // Master
+        
+        attributedText.addAttributes([NSAttributedStringKey.foregroundColor: UIColor.white, NSAttributedStringKey.font: UIFont(name: "Avenir-Light", size: 50)!], range: getRangeOfSubString(subString: "PLAN", fromString: normalString!)) // Plan
+        
+        Name.attributedText = attributedText
     }
     
     override func didReceiveMemoryWarning() {
@@ -21,15 +29,12 @@ class FirstViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-    
-    /*
-     // MARK: - Navigation
-     
-     // In a storyboard-based application, you will often want to do a little preparation before navigation
-     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-     // Get the new view controller using segue.destinationViewController.
-     // Pass the selected object to the new view controller.
-     }
-     */
+    func getRangeOfSubString(subString: String, fromString: String) -> NSRange {
+        let sampleLinkRange = fromString.range(of: subString)!
+        let startPos = fromString.distance(from: fromString.startIndex, to: sampleLinkRange.lowerBound)
+        let endPos = fromString.distance(from: fromString.startIndex, to: sampleLinkRange.upperBound)
+        let linkRange = NSMakeRange(startPos, endPos - startPos)
+        return linkRange
+    }
     
 }
