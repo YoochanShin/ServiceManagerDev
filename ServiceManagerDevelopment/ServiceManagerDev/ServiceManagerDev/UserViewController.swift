@@ -12,61 +12,64 @@ import UserNotifications
 
 class UserViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
-    
-    @IBOutlet weak var profilepic: UIImageView!
+    @IBOutlet weak var profpic: UIImageView!
+
     
     @IBOutlet weak var Switch: UISwitch!
-    @IBOutlet weak var Button: UIButton!
+
     
     var imagePicker = UIImagePickerController()
     
-    @IBAction func action(_ sender: Any) {
-        print("Hello")
-        if Switch.isOn{
-            let content = UNMutableNotificationContent()
-            content.title = "Notifications!"
-            content.subtitle = ""
-            content.body = "See which tasks need completion"
-            let alarmTime = Date().addingTimeInterval(1)
-            let components = Calendar.current.dateComponents([.weekday, .hour, .minute], from: alarmTime)
-            let trigger = UNCalendarNotificationTrigger(dateMatching: components, repeats: true)
-            let request = UNNotificationRequest(identifier: "taskreminder", content: content, trigger: trigger)
-            UNUserNotificationCenter.current().add(request, withCompletionHandler: nil)
-            
-            
+    @IBAction func switchPressed(_ sender: Any) {
+        print ("hello")
+        if Switch.isOn
+        {
+
+                let content = UNMutableNotificationContent()
+                content.title = "You have tasks to complete!"
+                content.subtitle = ""
+                content.body = "Joshua Shou is a genius omg"
+                let alarmTime = Date().addingTimeInterval(60)
+                let components = Calendar.current.dateComponents([.weekday,
+                                                                  .hour, .minute], from: alarmTime)
+                let trigger = UNCalendarNotificationTrigger(dateMatching:
+                    components, repeats: true)
+                let request = UNNotificationRequest(identifier:
+                    "taskreminder", content: content, trigger: trigger)
+                UNUserNotificationCenter.current().add(request, withCompletionHandler: nil)
+            }
+
+        else
+        {
+            UNUserNotificationCenter.current().removeAllPendingNotificationRequests()
         }
-            
-        else{
-            let center = UNUserNotificationCenter.current()
-            center.removeAllDeliveredNotifications() // To remove all delivered notifications
-            center.removeAllPendingNotificationRequests() // To remove all pending notifications which are not delivered yet but scheduled.
-            
-        }
-        UserDefaults.standard.set(Switch.isOn, forKey: "SwitchStatus");
         
         
     }
+   
+
+    @IBAction func changepic(_ sender: Any) {
     
-    @IBAction func buttonClicked(_ sender: Any) {
-        
+    
         imagePicker.delegate = self
         imagePicker.sourceType = UIImagePickerControllerSourceType.photoLibrary
         
         self.present(imagePicker, animated:true, completion:nil)
-        
-        
-        
     }
     
     
-    @objc func imagePickerController(_ _picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String:Any]){
+        
+
+
+    
+    
+    
+    
+    func imagePickerController(_ _picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String:Any]){
         let image = info[UIImagePickerControllerOriginalImage] as! UIImage
         
-        profilepic.image = image
-        self.performSegue(withIdentifier: "ShowEditView", sender: self)
+        profpic.image = image
         dismiss(animated: true, completion: nil)
-        
-        
     }
     
     
