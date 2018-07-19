@@ -1,9 +1,9 @@
 //
 //  LoginViewController.swift
-//  ServiceManagerDev
+//  ServiceManagerDevRe
 //
-//  Created by Yoochan Shin on 2018/7/3.
-//  Copyright © 2018 Yoochan Shin. All rights reserved.
+//  Created by Yoochan Shin on 2018/7/15.
+//  Copyright © 2018 CISSDev. All rights reserved.
 //
 
 import UIKit
@@ -11,49 +11,27 @@ import Foundation
 import MessageUI
 import GameplayKit
 
-class LoginViewController: UIViewController, MFMailComposeViewControllerDelegate {
+class LoginViewController: UIViewController {
+    
+    @IBOutlet weak var eMail: UITextField!
+    @IBOutlet weak var password: UITextField!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        // Do any additional setup after loading the view.
-    }
-    
-    @IBOutlet weak var email: UITextField!
-    @IBOutlet weak var password: UITextField!
-    @IBOutlet weak var emailAsterisk: UILabel!
-    @IBOutlet weak var passwordAsterisk: UILabel!
-    
-    override func viewWillAppear(_ animated: Bool) {
-        emailAsterisk.isHidden = true
-        passwordAsterisk.isHidden = true
-    }
-    
-    @IBAction func loginButton(_ sender: Any) {
-        if email.text == "" {
-            emailAsterisk.isHidden = false}
-        if password.text == "" {
-            passwordAsterisk.isHidden = false}
-        if !(email.text == "" && password.text == "") {
-            emailAsterisk.isHidden = true
-            passwordAsterisk.isHidden = true
-            self.email.resignFirstResponder()
-            self.password.resignFirstResponder()
-        }
-    }
-    
-    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) { // Touch the background to retract keyboard
-        self.view.endEditing(true)
+        eMail.attributedPlaceholder = NSAttributedString(string: "E-Mail", attributes: [NSAttributedStringKey.foregroundColor: UIColor.white])
+        password.attributedPlaceholder = NSAttributedString(string: "Password", attributes: [NSAttributedStringKey.foregroundColor: UIColor.white])
     }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
     
-    @IBAction func forgotPassword(_ sender: Any)
-    {
-        if email.text == "" {
+    override func viewWillAppear(_ animated: Bool) { // Show keyboard automatically
+        super.viewWillAppear(animated)
+        eMail.becomeFirstResponder()
+    }
+    @IBAction func forgotPassword(_ sender: UIButton) {
+        if eMail.text == "" {
             createAlert(title: "Please insert your \ne-mail address.", message: "", button: "Okay")
         } else {
             sendEmail()
@@ -91,9 +69,9 @@ class LoginViewController: UIViewController, MFMailComposeViewControllerDelegate
     
     func passwordMail() -> MFMailComposeViewController {
         let mailComposerVC = MFMailComposeViewController()
-        mailComposerVC.mailComposeDelegate = self
+        mailComposerVC.mailComposeDelegate = self as? MFMailComposeViewControllerDelegate
         
-        mailComposerVC.setToRecipients([(email.text)!])
+        mailComposerVC.setToRecipients([(eMail.text)!])
         mailComposerVC.setSubject("Generated Password")
         mailComposerVC.setMessageBody("Your generated password is: " + randomPasswordGenerator(), isHTML: false)
         
@@ -114,4 +92,5 @@ class LoginViewController: UIViewController, MFMailComposeViewControllerDelegate
         
         self.present(alert, animated: true, completion: nil)
     }
+    
 }
