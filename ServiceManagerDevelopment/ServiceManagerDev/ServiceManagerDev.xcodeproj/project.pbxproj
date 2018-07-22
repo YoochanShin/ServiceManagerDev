@@ -21,6 +21,8 @@
 		7F20D81C20ECA87C00EBD48A /* UserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F20D81B20ECA87C00EBD48A /* UserViewController.swift */; };
 		7F25794520FF9B1800E2DD50 /* ServiceItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F25794420FF9B1800E2DD50 /* ServiceItem.swift */; };
 		7F25794720FF9B2600E2DD50 /* Designable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F25794620FF9B2600E2DD50 /* Designable.swift */; };
+		C6214A31210445740074A233 /* UserCurrentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6214A30210445740074A233 /* UserCurrentViewController.swift */; };
+		C6214A33210445EE0074A233 /* UserSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6214A32210445EE0074A233 /* UserSettingsViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -40,6 +42,8 @@
 		7F20D81B20ECA87C00EBD48A /* UserViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserViewController.swift; sourceTree = "<group>"; };
 		7F25794420FF9B1800E2DD50 /* ServiceItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceItem.swift; sourceTree = "<group>"; };
 		7F25794620FF9B2600E2DD50 /* Designable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Designable.swift; sourceTree = "<group>"; };
+		C6214A30210445740074A233 /* UserCurrentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserCurrentViewController.swift; sourceTree = "<group>"; };
+		C6214A32210445EE0074A233 /* UserSettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserSettingsViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -81,6 +85,8 @@
 				7F20D81720ECA85B00EBD48A /* BarViewController.swift */,
 				7F20D81920ECA86700EBD48A /* ScheduleViewController.swift */,
 				7F20D81B20ECA87C00EBD48A /* UserViewController.swift */,
+				C6214A30210445740074A233 /* UserCurrentViewController.swift */,
+				C6214A32210445EE0074A233 /* UserSettingsViewController.swift */,
 				7F20D80120ECA7FF00EBD48A /* Main.storyboard */,
 				7F25794420FF9B1800E2DD50 /* ServiceItem.swift */,
 				7F25794620FF9B2600E2DD50 /* Designable.swift */,
@@ -164,6 +170,7 @@
 			files = (
 				7F20D81220ECA82F00EBD48A /* LoginViewController.swift in Sources */,
 				7F20D81C20ECA87C00EBD48A /* UserViewController.swift in Sources */,
+				C6214A33210445EE0074A233 /* UserSettingsViewController.swift in Sources */,
 				7F25794520FF9B1800E2DD50 /* ServiceItem.swift in Sources */,
 				7F20D81020ECA82500EBD48A /* FirstViewController.swift in Sources */,
 				7F20D81620ECA84800EBD48A /* RequestViewController.swift in Sources */,
@@ -173,6 +180,7 @@
 				7F25794720FF9B2600E2DD50 /* Designable.swift in Sources */,
 				7F20D7FE20ECA7FF00EBD48A /* AppDelegate.swift in Sources */,
 				7F20D81820ECA85B00EBD48A /* BarViewController.swift in Sources */,
+				C6214A31210445740074A233 /* UserCurrentViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
