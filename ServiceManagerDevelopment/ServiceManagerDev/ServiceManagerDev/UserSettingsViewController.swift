@@ -4,7 +4,7 @@ class UserSettingsViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        backgroundColor = UIColor(r: 2pp g: 0 b: 0)
+        
         // Do any additional setup after loading the view.
     }
     

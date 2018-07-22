@@ -3,7 +3,7 @@ import UIKit
 class UserCurrentViewController: UIViewController {
     
     override func viewDidLoad() {
-        backgroundColor = UIColor(r: 2pp g: 0 b: 0
+        
         super.viewDidLoad()
         
         // Do any additional setup after loading the view.
